@@ -1,0 +1,53 @@
+{# комментарий #}
+{# {{ url_for('js', filename='style.css') }} #}
+
+
+
+{% extends 'base.html' %}
+
+{% block script %}
+
+{% endblock %}
+
+
+{% block title %}
+Index page
+{% endblock %}
+
+
+{% block content_title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<button id="playButton">▶ PLAY</button>
+
+<h3>Live Output</h3>
+<div id="output" class="output">
+  <div id="content"></div>
+  <div id="status"></div>
+  <pre id="log"></pre>
+</div>
+
+<script>
+{% include 'chrome_samples.js' %}
+</script>
+
+<script>
+{% include 'ms_nav.js' %}
+</script>
+
+<script>
+{% include 'ms.js' %}
+
+return {{ globalList|safe }} ;
+}
+</script>
+
+<script>
+document.querySelector('#playButton').addEventListener('click', onPlayButtonClick);
+</script>
+
+{% endblock %}
